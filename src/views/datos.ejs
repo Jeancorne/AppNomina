@@ -1,0 +1,42 @@
+<ol class="breadcrumb">
+    <li class="active">Nómina</li>
+</ol>
+
+<table class="table" style="width:auto !important;">
+    <thead>
+        <tr>
+            <th scope="col">USUARIO</th>
+            <% for(var i=0; i< myData.length; i++) {%>
+            <th scope="col"><%= myData[i].dia %></th>
+            <% } %>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row"><%- usuario %></th>
+            <% for(var i=0; i< myData.length; i++) {%>
+            <th scope="col"><%= myData[i].hora %></th>
+            <% } %>
+        </tr>
+    </tbody>
+</table>
+<br>
+<div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Horas Totales: <%- sumatoriahoras  %></li>
+        <li class="list-group-item total">Total(ver):
+            <div style="display:none" id="divtotal">
+                <%- total  %>
+            </div>
+        </li>
+    </ul>
+</div>
+<script>
+    $(".total").mouseover(() => {
+        $('.total').css('cursor', 'pointer');
+        $('#divtotal').css('display', 'block');
+    });
+    $(".total").mouseout(() => {
+        $('#divtotal').css('display', 'none');
+    });
+</script>
